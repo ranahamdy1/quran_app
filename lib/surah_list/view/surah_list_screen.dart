@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SurahListScreen extends StatefulWidget {
   final Function(int page) onSurahSelected;
 
-  SurahListScreen({required this.onSurahSelected});
+  SurahListScreen({super.key, required this.onSurahSelected});
 
   @override
   _SurahListScreenState createState() => _SurahListScreenState();
@@ -35,7 +34,6 @@ class _SurahListScreenState extends State<SurahListScreen> {
 
       setState(() {
         surahNames = data.map<String>((surah) => surah['name'] as String).toList();
-        // نقوم بتحديث 'surahPages' يدويًا بدلًا من الحصول عليها من الـ API
         _isLoading = false;
       });
     } catch (e) {
@@ -66,11 +64,7 @@ class _SurahListScreenState extends State<SurahListScreen> {
           return ListTile(
             title: Text(surahNames[index]),
             onTap: () {
-              // نمرر الصفحة الخاصة بالسورة المحددة
               widget.onSurahSelected(surahPages[index]);
-              print("SurahName: ${surahNames[index]}");
-              print("SurahPages: ${surahPages[index]}");
-              print("Index: $index");
             },
           );
         },

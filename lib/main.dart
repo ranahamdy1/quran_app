@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quran_app/quoran/view/quran_viewer_screen.dart';
-import 'package:quran_app/surah_list/view/surah_list_screen.dart';
 
 void main() {
   runApp(const MyApp());

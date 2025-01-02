@@ -5,7 +5,7 @@ import 'package:quran_app/surah_list/view/surah_list_screen.dart';
 class QuranPageViewer extends StatefulWidget {
   final int initialPage;
 
-  const QuranPageViewer({Key? key, this.initialPage = 1}) : super(key: key);
+  const QuranPageViewer({super.key, this.initialPage = 1});
 
   @override
   _QuranPageViewerState createState() => _QuranPageViewerState();
@@ -13,11 +13,11 @@ class QuranPageViewer extends StatefulWidget {
 
 class _QuranPageViewerState extends State<QuranPageViewer> {
   final Dio _dio = Dio();
-  late PageController _pageController; // PageController
+  late PageController _pageController;
   int _currentPage = 1;
   final Map<int, List<String>> _pagesCache = {};
   final Map<int, String> _surahNamesCache = {};
-  bool _isLoading = false;
+  final bool _isLoading = false;
 
   Future<void> fetchPage(int pageNumber) async {
     if (_pagesCache.containsKey(pageNumber)) return;
