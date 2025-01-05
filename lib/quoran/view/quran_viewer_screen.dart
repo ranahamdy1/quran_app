@@ -54,7 +54,7 @@ class _QuranPageViewerState extends State<QuranPageViewer> {
       setState(() {
         _currentPage = selectedPage;
       });
-      _pageController.jumpToPage(_currentPage - 1); // Update PageController
+      _pageController.jumpToPage(_currentPage - 1);
       fetchPage(selectedPage);
     }
   }
@@ -63,7 +63,7 @@ class _QuranPageViewerState extends State<QuranPageViewer> {
   void initState() {
     super.initState();
     _currentPage = widget.initialPage;
-    _pageController = PageController(initialPage: _currentPage - 1); // Initialize PageController
+    _pageController = PageController(initialPage: _currentPage - 1);
     fetchPage(_currentPage);
   }
 
@@ -88,7 +88,7 @@ class _QuranPageViewerState extends State<QuranPageViewer> {
       body: _isLoading && !_pagesCache.containsKey(_currentPage)
           ? const Center(child: CircularProgressIndicator())
           : PageView.builder(
-        controller: _pageController, // Use PageController
+        controller: _pageController,
         itemCount: 604,
         onPageChanged: (index) {
           setState(() {
